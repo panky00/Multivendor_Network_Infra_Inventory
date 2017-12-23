@@ -1,0 +1,21 @@
+Value Filldown hostname (\S+)
+Value Required INTERFACE (\S+)
+Value DESCRIPTION (.*)
+Value ENCAPSULATION (\w+)
+Value IP_ADDRESS (\d+\.\d+\.\d+\.\d+\/\d+)
+Value MTU (\d+)
+Value BANDWIDTH (\d+\s+\w+)
+Value HARDWARE_TYPE ([\w ]+)
+Value LINK_STATUS (\w+)
+Value PROTOCOL_STATUS (.*)
+
+
+Start
+  ^hostname\s+${hostname}.*
+  ^${INTERFACE} is ${LINK_STATUS}.*protocol is ${PROTOCOL_STATUS}
+  ^\s+Hardware is ${HARDWARE_TYPE} -> Continue
+  ^\s+Description: ${DESCRIPTION}
+  ^\s+Internet address is ${IP_ADDRESS}
+  ^\s+MTU ${MTU}.*BW ${BANDWIDTH}.*DLY
+  ^\s+Encapsulation ${ENCAPSULATION} -> Record
+  
