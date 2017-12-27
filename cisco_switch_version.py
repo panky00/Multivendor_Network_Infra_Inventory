@@ -10,7 +10,7 @@ import paramiko
 import re
 datestring = datetime.strftime(datetime.now(),'%Y-%m-%d-%H-%M')
 os.chdir(r'C:\DEV\RAW_DATA')
-fd = open(r'cisco-ios-version.txt','w') 
+fd = open(r'cisco-switch-version.txt','w') 
 old_stdout = sys.stdout   
 sys.stdout = fd 
 platform = 'cisco_ios'
@@ -18,7 +18,7 @@ username = 'cisco'
 password = 'cisco'
 
 
-ip_add_file = open(r'C:\DEV\INVENTORY\cisco_ios_router.txt','r') 
+ip_add_file = open(r'C:\DEV\INVENTORY\cisco_switch.txt','r') 
 
 for host in ip_add_file:
     host = host.strip()

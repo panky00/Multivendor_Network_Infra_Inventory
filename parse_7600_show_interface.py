@@ -5,21 +5,21 @@ sys.path.append ('C:\Python27\Lib\site-packages\.')
 import textfsm as textfsm
 
 # Load the input file to a variable
-input_file = open("C:\DEV\RAW_DATA\cisco-ios-version.txt")
+input_file = open("C:\DEV\RAW_DATA\cisco-7600-show-interface.txt")
 raw_text_data = input_file.read()
 input_file.close()
 
 # Run the text through the FSM. 
 # The argument 'template' is a file handle and 'raw_text_data' is a 
 # string with the content from the show_inventory.txt file
-template = open("C:\DEV\SCRIPT\cisco_ios_show_version.template")
+template = open("C:\DEV\SCRIPT\cisco_ios_show_interfaces.template")
 re_table = textfsm.TextFSM(template)
 fsm_results = re_table.ParseText(raw_text_data)
 
 # the results are written to a CSV file
 datestring = datetime.strftime(datetime.now(),'%Y-%m-%d-%H-%M')
-os.chdir(r'C:\DEV\PARSE_DATA\Devices_inventory\version_ios')
-outfile_name = open("cisco-ios-version"+datestring+".csv", "w+")
+os.chdir(r'C:\DEV\PARSE_DATA\Interfaces_inventory\interface_ios)
+outfile_name = open("cisco-7600-show-interface"+datestring+".csv", "w+")
 outfile = outfile_name
 
 # Display result as CSV and write it to the output file

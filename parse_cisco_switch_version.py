@@ -5,7 +5,7 @@ sys.path.append ('C:\Python27\Lib\site-packages\.')
 import textfsm as textfsm
 
 # Load the input file to a variable
-input_file = open("C:\DEV\RAW_DATA\cisco-ios-version.txt")
+input_file = open("C:\DEV\RAW_DATA\cisco-switch-version.txt")
 raw_text_data = input_file.read()
 input_file.close()
 
@@ -19,7 +19,7 @@ fsm_results = re_table.ParseText(raw_text_data)
 # the results are written to a CSV file
 datestring = datetime.strftime(datetime.now(),'%Y-%m-%d-%H-%M')
 os.chdir(r'C:\DEV\PARSE_DATA\Devices_inventory\version_ios')
-outfile_name = open("cisco-ios-version"+datestring+".csv", "w+")
+outfile_name = open("cisco-switch-version"+datestring+".csv", "w+")
 outfile = outfile_name
 
 # Display result as CSV and write it to the output file

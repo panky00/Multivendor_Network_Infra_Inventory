@@ -18,7 +18,7 @@ fsm_results = re_table.ParseText(raw_text_data)
 
 # the results are written to a CSV file
 datestring = datetime.strftime(datetime.now(),'%Y-%m-%d-%H-%M')
-os.chdir(r'C:\DEV\PARSE_DATA')
+os.chdir(r'C:\DEV\PARSE_DATA\Interfaces_inventory\interface_ios')
 outfile_name = open("cisco-ios-show-interface"+datestring+".csv", "w+")
 outfile = outfile_name
 

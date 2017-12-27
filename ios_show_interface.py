@@ -14,8 +14,8 @@ fd = open(r'cisco-ios-show-interface.txt','w')
 old_stdout = sys.stdout   
 sys.stdout = fd 
 platform = 'cisco_ios'
-username = 'pankaj.sharma'
-password = '1Ofnc8qOyb8WMzTIdm0ey5kp'
+username = 'cisco'
+password = 'cisco'
 
 
 ip_add_file = open(r'C:\DEV\INVENTORY\cisco7600.txt','r') 

@@ -10,7 +10,7 @@ import paramiko
 import re
 datestring = datetime.strftime(datetime.now(),'%Y-%m-%d-%H-%M')
 os.chdir(r'C:\DEV\RAW_DATA')
-fd = open(r'cisco-7600-inventory.txt','w') 
+fd = open(r'cisco-XR-inventory.txt','w') 
 old_stdout = sys.stdout   
 sys.stdout = fd 
 platform = 'cisco_ios'
@@ -18,14 +18,14 @@ username = 'cisco'
 password = 'cisco'
 
 
-ip_add_file = open(r'C:\DEV\INVENTORY\cisco7600.txt','r')
+ip_add_file = open(r'C:\DEV\INVENTORY\xr.txt','r')
 
 for host in ip_add_file:
     host = host.strip()
     device = ConnectHandler(device_type=platform, ip=host, username=username, password=password)
     output = device.send_command('terminal length 0')
            
-    output = device.send_command('show configuration | i hostname')
+    output = device.send_command('show run | i hostname')
     print(output)
     output = device.send_command('show inventory')
     print(output)
