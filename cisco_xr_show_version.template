@@ -1,13 +1,13 @@
 Value HOSTNAME (\S+)
-Value VERSION (.+?)
+Value VERSION (\S+)
 Value RUNNING_IMAGE (\S+)
 Value List HARDWARE (\S+\d\S+)
 Value List SERIAL (\S+)
 
 
 Start
-  ^.*Software\s.+\),\sVersion\s${VERSION},*\s+RELEASE.*
+  ^.*Software,\sVersion\s${VERSION}
   ^\s*${HOSTNAME}\s+uptime\s+is\s+
   ^[sS]ystem\s+image\s+file\s+is\s+"(.*?):${RUNNING_IMAGE}"
   ^[Pp]rocessor\s+board\s+ID\s+${SERIAL}
-  ^[Cc]isco\s+${HARDWARE} -> Record
+  ^[Cc]isco\s+${HARDWARE}.+ -> Record
