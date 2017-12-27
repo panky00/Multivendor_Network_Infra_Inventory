@@ -1,0 +1,9 @@
+Value Filldown HOSTNAME (\S+)
+Value Item (\s+|\S+)
+Value Part_Number (\s+|\S+)
+Value Serial_No (\S.*)
+Value Description (\S.*)
+
+Start
+  ^\s*host-name\s${HOSTNAME}
+  ^${Item}\s+\S+\s+${Part_Number}\s+${Serial_No}\s+${Description} -> Record

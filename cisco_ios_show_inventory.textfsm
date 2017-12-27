@@ -1,11 +1,10 @@
-Value Filldown hostname (\S+)
+Value Filldown Device (\S+)
 Value name (.+)
-Value description (.*)
-Value productid (\S*)
-Value vid (\S*)
-Value Required serialnumber (\S+)
+Value DESCR (.*)
+Value PID (\S*)
+Value Required SN (\S+)
 
 Start
-  ^hostname\s+${hostname}.*
-  ^NAME: "${name}", DESCR: "${description}"
-  ^PID: ${productid}.*VID: ${vid}.*SN: ${serialnumber} -> Record
+  ^hostname\s+${Device}.*
+  ^NAME: "${name}", DESCR: "${DESCR}"
+  ^PID: ${PID}.*VID: \S+.*SN: ${SN} -> Record
